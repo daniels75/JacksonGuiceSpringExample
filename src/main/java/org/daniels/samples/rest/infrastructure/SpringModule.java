@@ -1,13 +1,6 @@
 package org.daniels.samples.rest.infrastructure;
 
-import org.daniels.samples.rest.repositories.contract.DummyRepository;
-import org.daniels.samples.rest.repositories.contract.UserRepository;
-import org.daniels.samples.rest.repositories.impl.mock.DummyMockRepositoryImpl;
-import org.daniels.samples.rest.repositories.impl.mock.UserMockRepositoryImpl;
-import org.daniels.samples.rest.service.contract.DummyService;
-import org.daniels.samples.rest.service.contract.UserService;
-import org.daniels.samples.rest.service.impl.DummyServiceImpl;
-import org.daniels.samples.rest.service.impl.UserServiceImpl;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -23,7 +16,9 @@ public class SpringModule extends AbstractModule {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         bind(BeanFactory.class).toInstance(applicationContext);
         bind(TransactionBo.class).toProvider(SpringIntegration.fromSpring(TransactionBo.class, "transactionBo"));
-       //  this doesnt work!
+        bind( SessionFactory.class ).toProvider( SpringIntegration.fromSpring( SessionFactory.class, "sessionFactory" ) );
+        
+       //  this doesn't work!
         // SpringIntegration.bindAll(binder(), applicationContext);
     }
 }

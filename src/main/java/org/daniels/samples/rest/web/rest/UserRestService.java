@@ -26,6 +26,13 @@ public class UserRestService {
     public int getNumberOfUsers() {
         return userService.getNumberOfUsers();
     }
+    
+    @GET
+    @Path("insert")
+    @Produces(MediaType.APPLICATION_JSON)
+    public int insertUser() {
+        return userService.insertUser();
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
