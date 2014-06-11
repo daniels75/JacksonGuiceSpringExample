@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="users">
+        <column>id</column>
+        <column>username</column>
+
+        <row>
+            <value description="id">-1</value>
+            <value description="username">user</value>
+
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="username">admin</value>
+
+        </row>
+        <row>
+            <value description="id">-3</value>
+            <value description="username">two_roles_user</value>
+
+        </row>        
+    </table>
+    
+</dataset>
